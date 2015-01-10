@@ -31,6 +31,7 @@ An example use case:  Say your module provides a dashboard.  Adding an LdcConten
 
     ```
     <?=$this->renderContentBlock('my_block_name'); ?>
+    ```
 
 4. Configure something to inject into the block
 
