@@ -3,4 +3,4 @@ imports:
 
 tools:
     external_code_coverage:
-        runs: 30
+        runs: 15
