@@ -11,8 +11,11 @@ LdcContentBlock
 
 ## What?
 
+LdcContentBlock provides an easy mechanism for adding view layer content blocks that receive and render `ViewModel`s sent to them.  
 
-LdcContentBlock does something useful, I hope.
+## What?
+
+An example use case:  Say your module provides a dashboard.  Adding an LdcContentBlock to the page will allow other modules in the system to hook into that block and display their own custom widgets without having to modify the source of the module providing the dashboard itself. 
 
 ## How?
 
@@ -24,4 +27,20 @@ LdcContentBlock does something useful, I hope.
 
 2. Enable the module (`LdcContentBlock`) in your ZF2 application.
 
-3. Profit!
+3. Add a content block to one of your view scripts:
+
+    ```
+    <?=$this->renderContentBlock('my_block_name'); ?>
+
+4. Configure something to inject into the block
+
+    1. Create a new model to inject and register it ([example](demo/BlockExtensionModule/Module.php#L21))
+
+    2. Add the view model key to the block configuration ([example](demo/BlockExtensionModule/Module.php#L55))
+
+4. Profit!
+
+## Show me!
+
+If you're fortunate enough to be on a *nix system with PHP >=5.4, pop into the `demo` folder and run the setup script (`run.sh`).  This will build the demo application, install the example modules, and start a webserver.  Once that's all done just open your browser and navigate to `http://localhost:8080/` to see the blocks in action!
+
